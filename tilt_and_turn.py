@@ -50,7 +50,7 @@ def turn(turn_direction, turn_amount = DEFAULT_STEP_AMOUNT):
     set_turn_direction(turn_direction)
     perform_turn(turn_amount)
 
-def tilt_direction(tilt_direction):
+def set_tilt_direction(tilt_direction):
     if(tilt_direction == 'up'):
         IO.OUTPUT(TILT_DIRECTION_PIN, GO_UP)
     elif(tilt_direction == 'down'):
@@ -68,11 +68,12 @@ def perform_tilt(tilt_amount):
 def tilt(tilt_direction, tilt_amount = DEFAULT_STEP_AMOUNT):
     set_tilt_direction(tilt_direction)
     perform_tilt(tilt_amount)
-    
+
 ######################
 # THE MAIN PROCESS:
 ######################
-while(true):
+main():
+    tilt('up', 500)
     # TURNING LOGIC:
     # if image processing says drone goes left:
         # turn('left')
@@ -84,3 +85,4 @@ while(true):
         # tilt('up')
     # elsif image processing says drone leaving:
         # tilt('down')
+main()
