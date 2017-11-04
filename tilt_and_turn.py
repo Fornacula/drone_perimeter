@@ -72,7 +72,7 @@ def tilt(tilt_direction, tilt_amount = DEFAULT_STEP_AMOUNT):
 ######################
 # THE MAIN PROCESS:
 ######################
-main():
+def main():
     tilt('up', 500)
     # TURNING LOGIC:
     # if image processing says drone goes left:
