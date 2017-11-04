@@ -33,18 +33,18 @@ IO.setup(TURN_DIRECTION_PIN, IO.OUT)
 
 def set_turn_direction(turn_direction):
     if(turn_direction == 'left'):
-        IO.OUTPUT(TURN_DIRECTION_PIN, GO_LEFT)
+        IO.output(TURN_DIRECTION_PIN, GO_LEFT)
     elif(turn_direction == 'right'):
-        IO.OUTPUT(TURN_DIRECTION_PIN, GO_RIGHT)
+        IO.output(TURN_DIRECTION_PIN, GO_RIGHT)
     else:
         raise("ERROR: <turn> method invalid direction argument: %s" % turn_direction)
 
 def perform_turn(turn_amount):
     for x in range(turn_amount):
         time.sleep(DEFAULT_DELAY)
-        IO.OUTPUT(TURN_STEP_PIN, 1)
+        IO.output(TURN_STEP_PIN, 1)
         time.sleep(DEFAULT_DELAY)
-        IO.OUTPUT(TURN_STEP_PIN, 0)
+        IO.output(TURN_STEP_PIN, 0)
 
 def turn(turn_direction, turn_amount = DEFAULT_STEP_AMOUNT):
     set_turn_direction(turn_direction)
@@ -52,18 +52,18 @@ def turn(turn_direction, turn_amount = DEFAULT_STEP_AMOUNT):
 
 def set_tilt_direction(tilt_direction):
     if(tilt_direction == 'up'):
-        IO.OUTPUT(TILT_DIRECTION_PIN, GO_UP)
+        IO.output(TILT_DIRECTION_PIN, GO_UP)
     elif(tilt_direction == 'down'):
-        IO.OUTPUT(TILT_DIRECTION_PIN, GO_DOWN)
+        IO.output(TILT_DIRECTION_PIN, GO_DOWN)
     else:
         raise("ERROR: <tilt> method invalid direction argument: %s" % tilt_direction)
 
 def perform_tilt(tilt_amount):
     for x in range(tilt_amount):
         time.sleep(DEFAULT_DELAY)
-        IO.OUTPUT(TILT_STEP_PIN, 1)
+        IO.output(TILT_STEP_PIN, 1)
         time.sleep(DEFAULT_DELAY)
-        IO.OUTPUT(TILT_STEP_PIN, 0)
+        IO.output(TILT_STEP_PIN, 0)
 
 def tilt(tilt_direction, tilt_amount = DEFAULT_STEP_AMOUNT):
     set_tilt_direction(tilt_direction)
