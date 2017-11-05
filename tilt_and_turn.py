@@ -1,19 +1,15 @@
 import RPi.GPIO as IO
 import time
 
-DEFAULT_STEP_AMOUNT = 3
-DEFAULT_DELAY = 0.01 # sleep for 10ms
+DEFAULT_STEP_AMOUNT = 30
+DEFAULT_DELAY = 0.0001 # sleep time between 2 steps in seconds
 GO_UP = 1
 GO_DOWN = 0
 TURN_RIGHT = 1
 TURN_LEFT = 0
 
-# Ignore the warnings when pins are busy
-# and proceed with the program.
-IO.setwarnings(False)
-
 # Use pin numbers not names
-IO.setmode (IO.BCM)
+IO.setmode (IO.BOARD)
 
 ########################
 ### PIN DEFINITIONS: ###
@@ -83,7 +79,8 @@ def tilt(tilt_direction, tilt_amount = DEFAULT_STEP_AMOUNT):
 # THE MAIN PROCESS:
 ######################
 def main():
-    tilt('up', 500)
+    tilt('up', 4000)
+    turn('right', 3000)
     # TURNING LOGIC:
     # if image processing says drone goes left:
         # turn('left')
