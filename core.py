@@ -12,10 +12,12 @@ class Core():
 	def __init__(self):
 
 		self.processes = []
-		self.following = True
-		self.camera_samples = 0
-		self.distance_sum = 0
-		self.direction_sum = 0
+
+		self.controller = Controller()
+		self.processes.append(self.controller)
+
+		self.camera = Camera(self.controller)
+		self.processes.append(self.camera)
 
 		time.sleep(1)
 
@@ -25,4 +27,5 @@ class Core():
 			proc.start()
 
 	def stop(self):
-		print('stop')
+		for proc in self.processes:
+			proc.stop()
